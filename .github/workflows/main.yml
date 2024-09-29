@@ -3,9 +3,10 @@ name: Pull request into dev, staging & main
 on:
   pull_request:
     branches:
-      - "dev"
-      - "staging"
       - "main"
+
+permissions:
+  contents: read
 
 jobs:
   test-and-deploy:
@@ -36,6 +37,41 @@ jobs:
 
       - name: Cypress E2E Test
         run: npm run cy:run
+
+      - name: Code Coverage Report
+        run: npm run report
+
+      - name: Check if lcov.info exists
+        run: cat ./coverage/lcov.info
+
+      - uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: ./coverage/lcov.info
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: "100"
+
+      # - uses: KKica/code-coverage@v0.1.0
+      #   with:
+      #     coverage_directory: ./coverage
+      #     coverage_results_path: ./coverage/lcov.info
+      #     minimum_coverage: 100
+      #     add_pr_comment: "true"
+      #     add_to_summary: "true"
+      #     delete_artifact: "true"
+
+      # - name: Code Coverage Reporting
+      #   run: npm run report
+
+      # - uses: romeovs/lcov-reporter-action@v0.2.16
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     lcov-file: ./coverage/lcov.info
 
     #   - name: Code Coverage
     #     run: npm run report

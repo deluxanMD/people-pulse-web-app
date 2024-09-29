@@ -13,7 +13,7 @@ type Story = StoryObj<typeof PasswordField>;
 
 export const PrimaryPasswordField: Story = {
   args: {
-    label: "Password Field",
+    label: "Primary Password Field",
   },
 };
 
