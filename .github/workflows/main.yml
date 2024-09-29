@@ -36,7 +36,9 @@ jobs:
         run: npm run cy:run
 
       - name: Code Coverage Reporting
-        uses: romeovs/lcov-reporter-action@v0.2.16
+        run: npm run report
+
+      - uses: romeovs/lcov-reporter-action@v0.2.16
         with:
           github-token: ${{ github.token }}
           lcov-file: ./coverage.lcov
