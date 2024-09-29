@@ -39,7 +39,7 @@ jobs:
         run: npm run report
 
       - name: Check if lcov.info exists
-        run: ls ${{ github.workspace }}
+        run: ls -la ${{ github.workspace }}
 
       - uses: irongut/CodeCoverageSummary@v1.3.0
         with:
