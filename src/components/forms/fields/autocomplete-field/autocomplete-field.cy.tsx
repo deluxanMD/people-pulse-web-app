@@ -39,10 +39,10 @@ const TestComponent = ({
   );
 };
 
-describe("<TLAutocompleteField />", () => {
+describe("<AutocompleteField />", () => {
   it("should load the component", () => {
     cy.mount(<TestComponent />);
-    cy.findByTestId("TLAutocompleteField").should("exist");
+    cy.findByTestId("AutocompleteField").should("exist");
   });
 
   it("should load with custom test id", () => {
@@ -52,17 +52,17 @@ describe("<TLAutocompleteField />", () => {
 
   it("should handle multiple values", () => {
     cy.mount(<TestComponent multiple />);
-    cy.findByTestId("TLAutocompleteField").click();
-    cy.findByTestId("TLAutocompleteField.Listbox").should("exist");
-    cy.findByTestId("TLAutocompleteField.Listbox")
+    cy.findByTestId("AutocompleteField").click();
+    cy.findByTestId("AutocompleteField.Listbox").should("exist");
+    cy.findByTestId("AutocompleteField.Listbox")
       .findByRole("option")
       .should("have.length", 2);
-    cy.findByTestId("TLAutocompleteField.Listbox")
+    cy.findByTestId("AutocompleteField.Listbox")
       .findByRole("option")
       .eq(0)
       .click();
-    cy.findByTestId("TLAutocompleteField").click();
-    cy.findByTestId("TLAutocompleteField.Listbox")
+    cy.findByTestId("AutocompleteField").click();
+    cy.findByTestId("AutocompleteField.Listbox")
       .findByRole("option")
       .eq(1)
       .click();
@@ -72,8 +72,8 @@ describe("<TLAutocompleteField />", () => {
 
   it("should clear the value", () => {
     cy.mount(<TestComponent />);
-    cy.findByTestId("TLAutocompleteField").click();
-    cy.findByTestId("TLAutocompleteField.Listbox")
+    cy.findByTestId("AutocompleteField").click();
+    cy.findByTestId("AutocompleteField.Listbox")
       .findByRole("option")
       .eq(0)
       .click();
@@ -83,8 +83,8 @@ describe("<TLAutocompleteField />", () => {
 
   it("should clear multiple values", () => {
     cy.mount(<TestComponent multiple />);
-    cy.findByTestId("TLAutocompleteField").click();
-    cy.findByTestId("TLAutocompleteField.Listbox")
+    cy.findByTestId("AutocompleteField").click();
+    cy.findByTestId("AutocompleteField.Listbox")
       .findByRole("option")
       .eq(0)
       .click();
@@ -95,7 +95,7 @@ describe("<TLAutocompleteField />", () => {
   it("should handle errors", () => {
     cy.mount(<TestComponent />);
     cy.findByTestId("TestForm.Button").click();
-    cy.findByTestId("TLAutocompleteField.HelperText").should(
+    cy.findByTestId("AutocompleteField.HelperText").should(
       "have.text",
       "test is a required field"
     );
@@ -103,6 +103,6 @@ describe("<TLAutocompleteField />", () => {
 
   it("should display icons", () => {
     cy.mount(<TestComponent Icon={AccountCircle} />);
-    cy.findByTestId("TLAutocompleteField.Icon").should("exist");
+    cy.findByTestId("AutocompleteField.Icon").should("exist");
   });
 });

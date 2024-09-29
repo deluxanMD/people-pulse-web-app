@@ -5,7 +5,7 @@ import { AccountCircle } from "@mui/icons-material";
 import { withReduxProvider } from "test-utils/storybook/with-redux-provider";
 
 const options: Option[] = [
-  { id: "one", label: "change later" },
+  { id: "one", label: "One" },
   { id: "two", label: "Two" },
 ];
 
