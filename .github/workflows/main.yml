@@ -40,8 +40,8 @@ jobs:
 
       - uses: KKica/code-coverage@v0.1.0
         with:
-          coverage_directory: coverage
-          coverage_results_path: lcov.info
+          coverage_directory: ./coverage
+          coverage_results_path: ./coverage/lcov.info
           minimum_coverage: 100
           add_pr_comment: "true"
           add_to_summary: "true"
