@@ -35,13 +35,24 @@ jobs:
       - name: Cypress E2E Test
         run: npm run cy:run
 
-      - name: Code Coverage Reporting
-        run: npm run report
-
-      - uses: romeovs/lcov-reporter-action@v0.2.16
+      - name: Use Code Coverage Action
+        uses: KKica/code-coverage@v0.1.0
         with:
-          github-token: ${{ github.token }}
-          lcov-file: ./coverage/lcov.info
+          code_coverage_artifacts_name: kika-codecoverage-artifact
+          coverage_directory: coverage
+          coverage_results_path: lcov.info
+          minimum_coverage: 100
+          add_pr_comment: "true"
+          add_to_summary: "true"
+          delete_artifact: "true"
+
+      # - name: Code Coverage Reporting
+      #   run: npm run report
+
+      # - uses: romeovs/lcov-reporter-action@v0.2.16
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     lcov-file: ./coverage/lcov.info
 
     #   - name: Code Coverage
     #     run: npm run report
