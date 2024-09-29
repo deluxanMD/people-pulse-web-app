@@ -5,7 +5,9 @@ describe("<Logo />", () => {
     cy.mount(<Logo withName />);
     cy.findByTestId("Logo.Container").should("exist");
     cy.findByTestId("WorkIcon").should("exist");
-    cy.findByTestId("Logo.Container").find("h6").should("have.text", "Talento");
+    cy.findByTestId("Logo.Container")
+      .find("h6")
+      .should("have.text", "PeoplePulse");
   });
 
   it("should load the logo without name", () => {
