@@ -39,11 +39,11 @@ jobs:
         run: npm run report
 
       - name: Check if lcov.info exists
-        run: ls -la ${{ github.workspace }}/coverage
+        run: cat ${{ github.workspace }}/coverage/lcov.info
 
       - uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: coverage/lcov.info
+          filename: ${{ github.workspace }}/coverage/lcov.info
           badge: true
           fail_below_min: true
           format: markdown
