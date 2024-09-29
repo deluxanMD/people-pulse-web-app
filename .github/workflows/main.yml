@@ -38,8 +38,8 @@ jobs:
       # - name: Use Code Coverage Action
       #   run: npm run report
 
-      # - name: Code Coverage Report
-      #   run: npm run report
+      - name: Code Coverage Report
+        run: npm run report
 
       - uses: irongut/CodeCoverageSummary@v1.3.0
         with:
