@@ -3,8 +3,6 @@ name: Pull request into dev, staging & main
 on:
   pull_request:
     branches:
-      - "dev"
-      - "staging"
       - "main"
 
 jobs:
@@ -36,6 +34,12 @@ jobs:
 
       - name: Cypress E2E Test
         run: npm run cy:run
+
+      - name: Code Coverage Reporting
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          github-token: ${{ github.token }}
+          lcov-file: ./coverage.lcov
 
     #   - name: Code Coverage
     #     run: npm run report
