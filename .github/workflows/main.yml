@@ -36,7 +36,9 @@ jobs:
         run: npm run cy:run
 
       - name: Use Code Coverage Action
-        uses: KKica/code-coverage@v0.1.0
+        run: npm run report
+
+      - uses: KKica/code-coverage@v0.1.0
         with:
           coverage_directory: coverage
           coverage_results_path: lcov.info
