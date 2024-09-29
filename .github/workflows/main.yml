@@ -41,7 +41,7 @@ jobs:
       - uses: romeovs/lcov-reporter-action@v0.2.16
         with:
           github-token: ${{ github.token }}
-          lcov-file: ./coverage.lcov
+          lcov-file: ./coverage/lcov.info
 
     #   - name: Code Coverage
     #     run: npm run report
