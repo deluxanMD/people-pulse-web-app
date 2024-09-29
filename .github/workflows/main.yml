@@ -38,14 +38,29 @@ jobs:
       - name: Use Code Coverage Action
         run: npm run report
 
-      - uses: KKica/code-coverage@v0.1.0
+      - name: Code Coverage Report
+        run: npm run report
+
+      - uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          coverage_directory: ./coverage
-          coverage_results_path: ./coverage/lcov.info
-          minimum_coverage: 100
-          add_pr_comment: "true"
-          add_to_summary: "true"
-          delete_artifact: "true"
+          filename: coverage/lcov.info
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: "100"
+
+      # - uses: KKica/code-coverage@v0.1.0
+      #   with:
+      #     coverage_directory: ./coverage
+      #     coverage_results_path: ./coverage/lcov.info
+      #     minimum_coverage: 100
+      #     add_pr_comment: "true"
+      #     add_to_summary: "true"
+      #     delete_artifact: "true"
 
       # - name: Code Coverage Reporting
       #   run: npm run report
