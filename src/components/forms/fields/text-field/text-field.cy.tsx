@@ -19,7 +19,7 @@ const TestComponent = ({
   );
 };
 
-describe("<TLTextField />", () => {
+describe("<TextField />", () => {
   it("should load the component", () => {
     cy.mount(<TestComponent />);
     cy.findByTestId("TextField").should("exist");

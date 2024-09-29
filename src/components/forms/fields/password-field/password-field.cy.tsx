@@ -12,7 +12,7 @@ const TestComponent = ({ dataTestId }: { dataTestId?: string }) => {
   );
 };
 
-describe("<TLPasswordField />", () => {
+describe("<PasswordField />", () => {
   it("should load the password field component", () => {
     cy.mount(<TestComponent />);
     cy.findByTestId("PasswordField").should("exist");
